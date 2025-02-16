@@ -9,8 +9,10 @@ import (
 	"net/url"
 	"strconv"
 
+	"github.com/alist-org/alist/v3/internal/conf"
 	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/alist-org/alist/v3/internal/net"
+	"github.com/alist-org/alist/v3/internal/setting"
 	"github.com/alist-org/alist/v3/internal/stream"
 	"github.com/alist-org/alist/v3/pkg/http_range"
 	"github.com/alist-org/alist/v3/pkg/utils"
@@ -30,7 +32,7 @@ func processMarkdown(content []byte) ([]byte, error) {
 func Proxy(w http.ResponseWriter, r *http.Request, link *model.Link, file model.Obj) error {
 
 	//优先处理md文件
-	if utils.Ext(file.GetName()) == "md" {
+	if setting.GetBool(conf.FilterMarkdownScripts) && utils.Ext(file.GetName()) == "md" {
 		var markdownContent []byte
 		var err error
 

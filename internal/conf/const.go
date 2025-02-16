@@ -33,6 +33,8 @@ const (
 
 	// global
 	HideFiles               = "hide_files"
+	AutoRenderReadme        = "auto_render_readme"
+	FilterMarkdownScripts   = "filter_readme_scripts"
 	CustomizeHead           = "customize_head"
 	CustomizeBody           = "customize_body"
 	LinkExpiration          = "link_expiration"

@@ -141,6 +141,8 @@ func InitialSettings() []model.SettingItem {
 		{Key: conf.VideoAutoplay, Value: "true", Type: conf.TypeBool, Group: model.PREVIEW},
 		// global settings
 		{Key: conf.HideFiles, Value: "/\\/README.md/i", Type: conf.TypeText, Group: model.GLOBAL},
+		{Key: conf.AutoRenderReadme, Value: "true", Type: conf.TypeBool, Group: model.GLOBAL},
+		{Key: conf.FilterMarkdownScripts, Value: "true", Type: conf.TypeBool, Group: model.GLOBAL},
 		{Key: "package_download", Value: "true", Type: conf.TypeBool, Group: model.GLOBAL},
 		{Key: conf.CustomizeHead, PreDefault: `<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=String.prototype.replaceAll"></script>`, Type: conf.TypeText, Group: model.GLOBAL, Flag: model.PRIVATE},
 		{Key: conf.CustomizeBody, Type: conf.TypeText, Group: model.GLOBAL, Flag: model.PRIVATE},
