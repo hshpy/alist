@@ -99,8 +99,8 @@ func (d *QuarkUCTV) List(ctx context.Context, dir model.Obj, args model.ListArgs
 			req.SetQueryParams(map[string]string{
 				"method":     "list",
 				"parent_fid": dir.GetID(),
-				"order_by":   "3",
-				"desc":       "1",
+				"order_by":   "1",
+				"desc":       "0",
 				"category":   "",
 				"source":     "",
 				"ex_source":  "",
@@ -138,11 +138,11 @@ func (d *QuarkUCTV) Link(ctx context.Context, file model.Obj, args model.LinkArg
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return &model.Link{
 		URL:  fileLink.Data.DownloadURL,
 		Concurrency: 3,
-		PartSize:    10 * utils.MB,
+		PartSize:    4 * utils.MB,
 	}, nil
 }
 
